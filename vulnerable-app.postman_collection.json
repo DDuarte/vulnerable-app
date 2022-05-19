@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "8b651eeb-6a43-4c7b-aa19-e76fcf553cd1",
+		"name": "Vulnerable App",
+		"description": "API Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"someone@example.com\",\n        \"password\": \"safepassword\",\n        \"username\": \"johnyy\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/users",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"email\":\"someone@example.com\", \"password\":\"safepassword\"}}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/users/login",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Current User",
+			"event": [],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{apiUrl}}/user",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"event": [],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"username\": \"johnyy\", \"bio\": \"My Instagram bio\"}}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/user",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"event": [],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{apiUrl}}/profiles/johnyy",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"profiles",
+						"johnyy"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiUrl",
+			"value": "http://localhost:3000/api"
+		}
+	]
+}
